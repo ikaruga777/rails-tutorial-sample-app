@@ -1,8 +1,10 @@
+<% provide(:title, "Home") # %は式評価だけ %>
 <!DOCTYPE html>
 <html>
   <head>
     <title>
-      Home | Ruby on Rails Tutorial Sample App
+      <%= yield(:title)%> | Ruby on Rails Tutorial Sample App
+      <% # %=は式評価の結果をテンプレートに展開する %>
     </title>
   </head>
   <body>
