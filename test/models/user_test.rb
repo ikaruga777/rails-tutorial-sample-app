@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
                      password: "foobar", password_confirmation: "foobar")
   end
 
-  test "shuld be valid " do
+  test "should be valid " do
     assert @user.valid?
   end
 
@@ -30,7 +30,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
-  test "email validation shuould accept valid addresses" do
+  test "email validation should accept valid addresses" do
     valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
     valid_addresses.each do |valid_address|
       @user.email = valid_address
@@ -39,7 +39,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "email validation shoul reject invalid addresses" do
+  test "email validation should reject invalid addresses" do
     invalid_addresses = %w[user@example,com user_at_foo.org user.name@example foo@bar_baz.com foo@bar+baz.com fooo@bar..com]
     invalid_addresses.each do | invalid_address |
       @user.email = invalid_address
@@ -47,7 +47,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
-  test "email addresses shuld be unique" do
+  test "email addresses should be unique" do
     # ユーザを複製してemailの重複をチェックする
     dumplicate_user = @user.dup
     # emailは大文字小文字区別しない
@@ -56,7 +56,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not dumplicate_user.valid?
   end
 
-  test "email addresses shuld be saved as lower-case" do
+  test "email addresses should be saved as lower-case" do
     mixed_case_email = "ABcdEFG@ExaMple.Com"
     @user.email = mixed_case_email
     @user.save
