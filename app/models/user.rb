@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token
   # DBの種類によってindexが大文字小文字区別するしないを考えなくて良いようにする
   before_save { email.downcase! }
   #validatesはメソッド、特定のハッシュに対してプロパティを設定する。からコロンの位置が絶妙な感じになってる
@@ -16,5 +17,14 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end  
-                                              
+
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end           
+  
+  # セッションの永続化のため、DBに登録
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
 end
