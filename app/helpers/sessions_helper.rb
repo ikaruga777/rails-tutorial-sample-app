@@ -1,8 +1,10 @@
 module SessionsHelper
+
   def log_in(user)
     session[:user_id] = user.id
   end
 
+  # ログイン情報の削除
   def forget(user)
     user.forget
     cookies.delete(:user_id)
