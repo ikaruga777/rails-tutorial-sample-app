@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    # 二重削除はエラーになるのでログイン判別する
+    log_out if logged_in?
     redirect_to root_url
   end
 
