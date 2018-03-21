@@ -12,10 +12,13 @@ class UsersController < ApplicationController
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to user_url(@user)
-      
     else
       render 'new'
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
   private
     def user_params
