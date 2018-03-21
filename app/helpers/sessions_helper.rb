@@ -1,5 +1,6 @@
+# 永続的セッションを実現する
 module SessionsHelper
-
+  
   def log_in(user)
     session[:user_id] = user.id
   end
@@ -17,12 +18,14 @@ module SessionsHelper
     @current_user = nil
   end
 
+  # 永続クッキーに保存する
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token]= user.remember_token
   end
 
+  # ログイン中のユーザを返す
   def current_user
     if (user_id = session[ :user_id ])
       @current_user ||= User.find_by(id: session[:user_id])
