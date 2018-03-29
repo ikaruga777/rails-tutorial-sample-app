@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
   def new
     #newアクションで使うUserをここで定義する。
     @user = User.new
@@ -24,7 +25,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      # 更新成功
+      flash[:success] = "Profile updated"
+      redirect_to @user
     else
       render 'edit'
     end
@@ -32,5 +34,13 @@ class UsersController < ApplicationController
   private
     def user_params
      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    # ログイン済みですか?
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
     end
 end
