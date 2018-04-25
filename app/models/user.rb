@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
   # DBの種類によってindexが大文字小文字区別するしないを考えなくて良いようにする
-  before_save { email.downcase! }
+  before_save :downcase_email
+  before_create :create_activation_digest
   #validatesはメソッド、特定のハッシュに対してプロパティを設定する。からコロンの位置が絶妙な感じになってる
   validates :name, presence: true, length: { maximum: 50 }
   
@@ -36,5 +37,17 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  private
+
+  def downcase_email
+    self.email = email.downcase
+  end
+
+   # アカウントの有効化トークンとダイジェストを発行する
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end
