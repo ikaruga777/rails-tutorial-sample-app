@@ -42,7 +42,7 @@ class User < ApplicationRecord
   private
 
   def downcase_email
-    self.email = email.downcase
+    self.email.downcase!
   end
 
    # アカウントの有効化トークンとダイジェストを発行する
