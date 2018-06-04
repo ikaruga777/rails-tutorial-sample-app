@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
+  has_many :microposts
   # DBの種類によってindexが大文字小文字区別するしないを考えなくて良いようにする
   before_save :downcase_email
   before_create :create_activation_digest
