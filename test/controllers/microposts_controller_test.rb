@@ -12,10 +12,19 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
-  test "hould redirect destroy when not logged in" do
+  test "should redirect destroy when not logged in" do
     assert_no_difference 'Micropost.count' do
       delete micropost_path(@micropost)
     end
     assert_redirected_to login_url
+  end
+
+  test "should redirect destory for wrong micropost" do
+    log_in_as(users(:michael))
+    micropost = microposts(:ants)
+    assert_no_difference 'Micropost.count' do
+      delete micropost_path(micropost)
+    end
+    assert_redirected_to root_url
   end
 end
