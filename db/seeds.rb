@@ -24,3 +24,10 @@ User.create!(name: "Example User",
                activated: true,
                activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6).each
+50.times do
+  address = Gimei::address
+  content = address.kanji + address.romaji
+  users.each { |user| user.microposts.create!(content: content) }
+end 
