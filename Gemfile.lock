@@ -231,6 +231,9 @@ GEM
       romaji
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.4.10)
+      railties
+      sprockets-rails
     graphql (1.7.7)
     guard (2.13.0)
       formatador (>= 0.2.4)
@@ -410,6 +413,7 @@ DEPENDENCIES
   coffee-rails (= 4.2.2)
   fog (= 1.42)
   gimei
+  graphiql-rails
   graphql (= 1.7.7)
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
