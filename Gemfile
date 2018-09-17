@@ -15,7 +15,8 @@ gem 'therubyracer', platform: :ruby
 gem 'carrierwave',   '1.2.2'
 gem 'mini_magick',   '4.7.0'
 gem 'will_paginate','3.1.6'
-gem 'bootstrap-will_paginate', '1.0.0'       
+gem 'bootstrap-will_paginate', '1.0.0'      
+gem 'activeadmin' 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
