@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-class UsersProfileTest < ActionDispatch::IntegrationTest 
+class UsersProfileTest < ActionDispatch::IntegrationTest
   include ApplicationHelper
 
   def setup
@@ -18,7 +20,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_match @user.following.count.to_s, response.body
     assert_select 'div.pagination', count: 1
     @user.microposts.paginate(page: 1).each do |micropost|
-    assert_match micropost.content, response.body
+      assert_match micropost.content, response.body
     end
   end
 end

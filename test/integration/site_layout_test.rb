@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
-
 class SiteLayoutTest < ActionDispatch::IntegrationTest
-
-def setup
-  @user = users(:michael)
-end
+  def setup
+    @user = users(:michael)
+  end
 
   test "layout_links" do
     get root_path
@@ -15,7 +15,7 @@ end
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", contact_path
     assert_select "a[href=?]", signup_path
-    assert_select "title", full_title()
+    assert_select "title", full_title
   end
 
   test 'layout_links_after_login' do

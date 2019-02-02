@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MicropostTest < ActiveSupport::TestCase
@@ -21,7 +23,7 @@ class MicropostTest < ActiveSupport::TestCase
   end
 
   test "content should be at most 140 characters" do
-    @micropost.content = "a"*141
+    @micropost.content = "a" * 141
     assert_not @micropost.valid?
   end
 
