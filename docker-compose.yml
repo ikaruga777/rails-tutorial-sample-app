@@ -2,7 +2,7 @@ version: '3'
 services:
   db:
     image: postgres:11
-  web:
+  app: &app_base
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
@@ -11,3 +11,8 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  spring:
+    <<: *app_base
+    command: bin/spring server
+    ports: [ ]
+    
