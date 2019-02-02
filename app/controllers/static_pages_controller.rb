@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
@@ -5,13 +7,10 @@ class StaticPagesController < ApplicationController
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
   end
-  
-  def help
-  end
 
-  def about
-  end
+  def help; end
 
-  def Contact
-  end
+  def about; end
+
+  def Contact; end
 end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: %i[create destroy]
   before_action :correct_user,   only: :destroy
 
   def create
@@ -8,7 +10,7 @@ class MicropostsController < ApplicationController
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
-      @feed_items =[]
+      @feed_items = []
       render 'static_pages/home'
     end
   end
@@ -16,14 +18,15 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     flash[:success] = "Micropost deleted"
-    redirect_to request.referrer || root_url
+    redirect_to request.referer || root_url
   end
 
   def micropost_params
     params.require(:micropost).permit(:content)
   end
 
-private
+  private
+
   def micropost_params
     params.require(:micropost).permit(:content, :picture)
   end

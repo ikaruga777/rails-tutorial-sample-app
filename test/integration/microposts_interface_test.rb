@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
-
   def setup
     @user = users(:michael)
   end
@@ -13,7 +14,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_select 'input[type=file]'
     # 無効な送信
     assert_no_difference 'Micropost.count' do
-      post microposts_path, params: {micropost: { content: "" }}
+      post microposts_path, params: { micropost: { content: "" } }
     end
     assert_select 'div#error_explanation'
 
@@ -21,8 +22,8 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     content = "This micropost really ties the room together"
     picture = fixture_file_upload('test/fixtures/test.png', 'image/png')
     assert_difference 'Micropost.count', 1 do
-      post microposts_path, params: {micropost: { content: content,
-                                                  picture: picture}}
+      post microposts_path, params: { micropost: { content: content,
+                                                   picture: picture } }
     end
     assert assigns(:micropost).picture?
     assert_redirected_to root_url
@@ -30,7 +31,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_match content, response.body
 
     # 投稿を削除する
-    assert_select 'a',text: 'delete'
+    assert_select 'a', text: 'delete'
     first_micropost = @user.microposts.paginate(page: 1).first
     assert_difference 'Micropost.count', -1 do
       delete micropost_path(first_micropost)

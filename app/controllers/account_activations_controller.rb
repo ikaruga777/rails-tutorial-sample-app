@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class AccountActivationsController < ApplicationController
-  
   # 認証URLからのユーザ有効化
   def edit
     user = User.find_by(email: params[:email])

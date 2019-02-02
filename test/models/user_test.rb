@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  def setup 
+  def setup
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
   end
@@ -24,24 +26,24 @@ class UserTest < ActiveSupport::TestCase
     @user.email = "     "
     assert_not @user.valid?
   end
-  
+
   test "email should not be too long" do
     @user.email = "a" * 244 + "@example.com"
     assert_not @user.valid?
   end
-  
+
   test "email validation should accept valid addresses" do
     valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
     valid_addresses.each do |valid_address|
       @user.email = valid_address
-      #assert の第二引数にエラーメッセージ入れて異常ケースを特定する
+      # assert の第二引数にエラーメッセージ入れて異常ケースを特定する
       assert @user.valid?, "#{valid_address.inspect} should be valid"
     end
   end
 
   test "email validation should reject invalid addresses" do
     invalid_addresses = %w[user@example,com user_at_foo.org user.name@example foo@bar_baz.com foo@bar+baz.com fooo@bar..com]
-    invalid_addresses.each do | invalid_address |
+    invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
       assert_not @user.valid?, "#{invalid_address.inspect} should be invalid"
     end
@@ -74,7 +76,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "authenticated? should return false for a user with nil digest" do
-    assert_not @user.authenticated?(:remember,'')
+    assert_not @user.authenticated?(:remember, '')
   end
 
   test "associated microposts should be destroyed" do
@@ -84,7 +86,7 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
-  
+
   test "should follow and unfollow a user" do
     michael = users(:michael)
     archer = users(:archer)
@@ -112,6 +114,6 @@ class UserTest < ActiveSupport::TestCase
     # フォローしていないユーザの投稿は含まれないことを確認
     archer.microposts.each do |post_unfollowing|
       assert_not michael.feed.include?(post_unfollowing)
-    end  
+    end
   end
 end

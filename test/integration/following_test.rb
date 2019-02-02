@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class FollowingTest < ActionDispatch::IntegrationTest
-
-  def setup 
+  def setup
     @user = users(:michael)
     @other = users(:archer)
     log_in_as(@user)
@@ -60,5 +61,4 @@ class FollowingTest < ActionDispatch::IntegrationTest
       assert_match CGI.escapeHTML(micropost.content), response.body
     end
   end
-
 end
