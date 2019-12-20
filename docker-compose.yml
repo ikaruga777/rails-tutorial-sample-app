@@ -15,4 +15,3 @@ services:
     <<: *app_base
     command: bin/spring server
     ports: [ ]
-    
