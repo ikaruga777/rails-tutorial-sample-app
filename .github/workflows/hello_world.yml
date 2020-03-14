@@ -1,5 +1,5 @@
 name: Hello, World1
-on: push 
+on: push
 
 jobs:
   build:
@@ -7,3 +7,4 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: echo "Hello, World!"
+        - run: ls
