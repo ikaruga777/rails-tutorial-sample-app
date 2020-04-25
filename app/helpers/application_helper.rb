@@ -22,7 +22,6 @@ module ApplicationHelper
   end
 
   def load
-    binding.pry
     manifest_path = Rails.root.join('public', 'packs', 'parcel-manifest.json')
     if manifest_path.exist?
       JSON.parse manifest_path.read
