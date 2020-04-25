@@ -21,6 +21,7 @@ gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.6'
 group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'pry-byebug'
   gem 'sqlite3', '1.3.13'
 end
 
@@ -29,6 +30,8 @@ group :development do
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console',           '3.5.1'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
