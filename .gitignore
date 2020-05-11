@@ -26,3 +26,8 @@
 
 # アップロードされたテスト画像を無視する
 /public/uploads
+
+/vendor/bundle
+/node_modules
+/public/packs
+/.cache
