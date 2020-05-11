@@ -13,9 +13,8 @@
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
-      <div id="app">
+      <div>
       </div>
-      <%= javascript_pack_tag 'index' %>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>

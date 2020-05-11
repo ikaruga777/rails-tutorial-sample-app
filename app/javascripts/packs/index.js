@@ -1,11 +1,14 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import Vue from 'vue/dist/vue';
-import Hello from './Hello.vue';
+import Home from './Home.vue';
 
 document.addEventListener('DOMContentLoaded', () => {
   new Vue({
-    el: '#app',
+    el:
+    '#app',
     render: (createElement) => {
-      return createElement(Hello)
+      return createElement(Home)
     }
   });
 });
