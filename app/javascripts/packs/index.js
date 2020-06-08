@@ -4,11 +4,11 @@ import Vue from 'vue/dist/vue';
 import Home from './Home.vue';
 
 document.addEventListener('DOMContentLoaded', () => {
-  new Vew({
-    el: 
+  new Vue({
+    el:
     '#app',
     render: (createElement) => {
-      return createElemnt(Home)
+      return createElement(Home)
     }
   });
 });
