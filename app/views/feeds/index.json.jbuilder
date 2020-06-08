@@ -1,0 +1,1 @@
+json.array! @feeds, parial: 'feeds/feed', as: :feed
