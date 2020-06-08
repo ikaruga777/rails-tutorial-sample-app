@@ -5,7 +5,10 @@
     <div v-else>
       <div v-if="feeds.length > 0">
           <p v-for="feed in feeds" v-bind:key="feed.id">
-            {{ feed.content }}
+            <GravatarImage v-bind:user="feed.user" />
+            <div>
+              {{ feed.content }}
+            </div>
           </p>
         </div>
         <div v-else>
@@ -17,8 +20,11 @@
 
 <script>
 import axios from 'axios';
-
+import GravatarImage from './GravatarImage.vue'
 export default {
+  components: {
+    GravatarImage
+  },
   data() {
     return {
       feeds: [],
