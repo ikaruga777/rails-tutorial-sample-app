@@ -1,8 +1,7 @@
 <template>
   <div>
     <div v-if="feeds.length > 0">
-      <p v-for "feed in feeds" v-bind:key="feed.id">
-        あるぜ
+      <p v-for="feed in feeds" v-bind:key="feed.id">
         {{ feed.content }}
       </p>
     </div>
