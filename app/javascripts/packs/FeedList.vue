@@ -1,18 +1,17 @@
 <template>
   <div>
     <p v-for="feed in feeds" v-bind:key="feed.id">
-      {{ feed.content }}
-      <GravatarImage v-bind:user="feed.user" />
+      <FeedItem v-bind:feed="feed" />
     </p>
   </div>
 </template>
 
 <script>
-import GravatarImage from './GravatarImage.vue'
+import FeedItem from './FeedItem.vue'
 
 export default {
   components: {
-    GravatarImage
+    FeedItem
   },
   props: {
     feeds: Array
