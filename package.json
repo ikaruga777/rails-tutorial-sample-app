@@ -1,5 +1,21 @@
 {
   "name": "sample_app",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "watch": "npx parcel watch app/javascripts/packs/index.js -d public/packs --public-url /packs/ --hmr-port 50000"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-bundle-manifest": "^0.2.0",
+    "regenerator-runtime": "^0.13.5",
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4",
+    "vue-router": "^3.1.6"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.1.2",
+    "vue-template-compiler": "^2.6.11"
+  }
 }

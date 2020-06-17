@@ -1,4 +1,6 @@
 <% if logged_in? %>
+  <div id ="app"></div>
+  <%= javascript_pack_tag 'index' %>
   <%= render 'shared/logged_in'%>
 <% else %>
   <%= render 'shared/unlogged_in' %>
