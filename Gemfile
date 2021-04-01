@@ -14,7 +14,7 @@ gem 'jbuilder',     '2.7.0'
 gem 'jquery-rails', '4.3.1'
 gem 'mini_magick', '4.9.4'
 gem 'puma', '3.12.4'
-gem 'rails', '5.2.1'
+gem 'rails', '5.2.5'
 gem 'sass-rails', '5.0.6'
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
@@ -43,6 +43,7 @@ end
 
 group :production do
   gem 'scout_apm'
-  gem 'fog', '1.42'
+  gem 'fog-local'
+  gem 'fog-aws'
   gem 'pg', '0.18.4'
 end
