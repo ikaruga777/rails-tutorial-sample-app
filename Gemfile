@@ -21,9 +21,9 @@ gem 'uglifier'
 gem 'will_paginate'
 
 group :development, :test do
-  gem 'byebug',  '9.0.6', platform: :mri
+  gem 'byebug'
   gem 'pry-byebug'
-  gem 'sqlite3', '1.3.13'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -36,15 +36,15 @@ group :development do
 end
 
 group :test do
-  gem 'guard',                    '2.13.0'
-  gem 'guard-minitest',           '2.4.4'
-  gem 'minitest-reporters',       '1.1.14'
-  gem 'rails-controller-testing', '1.0.2'
+  gem 'guard'            
+  gem 'guard-minitest'      
+  gem 'minitest-reporters'
+  gem 'rails-controller-testing'
 end
 
 group :production do
   gem 'scout_apm'
   gem 'fog-local'
   gem 'fog-aws'
-  gem 'pg', '0.18.4'
+  gem 'pg'
 end
