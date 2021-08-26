@@ -25,6 +25,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'sqlite3'
   gem 'steep', require: false
+  gem 'rbs_rails', require: false
 end
 
 group :development do

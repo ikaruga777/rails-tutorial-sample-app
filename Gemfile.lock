@@ -238,6 +238,9 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rbs (1.5.1)
+    rbs_rails (0.8.2)
+      parser
+      rbs (>= 1)
     romaji (0.2.4)
       rake (>= 0.8.0)
     ruby-progressbar (1.11.0)
@@ -328,6 +331,7 @@ DEPENDENCIES
   puma
   rails (~> 6.0)
   rails-controller-testing
+  rbs_rails
   sass-rails
   scout_apm
   spring
