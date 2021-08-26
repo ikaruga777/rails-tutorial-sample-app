@@ -18,10 +18,10 @@ jobs:
     - name: setup dependencies
       run: sudo apt-get update -y && sudo apt-get install -y build-essential libsqlite3-dev libcurl4-openssl-dev
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.7
+    - name: Set up Ruby 3
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7.3
+        ruby-version: 3.0.1
     - name: Build and test with Rake
       run: |
         gem install bundler
