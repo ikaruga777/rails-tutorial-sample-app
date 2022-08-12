@@ -19,11 +19,11 @@ gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'will_paginate'
+gem 'pg'
 
 group :development, :test do
   gem 'byebug'
   gem 'pry-byebug'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -46,5 +46,4 @@ group :production do
   gem 'scout_apm'
   gem 'fog-local'
   gem 'fog-aws'
-  gem 'pg'
 end
