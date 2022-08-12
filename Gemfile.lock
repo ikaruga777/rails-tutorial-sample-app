@@ -287,7 +287,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     ssrf_filter (1.0.7)
     strscan (3.0.1)
     thor (1.2.1)
@@ -342,7 +341,6 @@ DEPENDENCIES
   scout_apm
   spring
   spring-watcher-listen
-  sqlite3
   turbolinks
   uglifier
   web-console
