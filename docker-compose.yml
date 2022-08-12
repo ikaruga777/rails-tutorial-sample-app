@@ -4,7 +4,7 @@ services:
     image: postgres:11
   app: &app_base
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bin/rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp
     ports:
